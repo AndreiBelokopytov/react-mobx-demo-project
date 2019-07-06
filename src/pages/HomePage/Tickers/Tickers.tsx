@@ -1,5 +1,5 @@
 import * as React from "react";
-import {TickersTableRecord} from './model';
+import { TickersTableRecord } from "./model";
 
 export type TickersProps = {
   tickers: TickersTableRecord[];
@@ -10,7 +10,7 @@ export type TickerTableCol = {
   prop: keyof TickersTableRecord;
 };
 
-const tableCols: TickerTableCol[] = [
+export const tickerTableCols: TickerTableCol[] = [
   {
     title: "Symbol",
     prop: "symbol"
@@ -34,12 +34,11 @@ const tableCols: TickerTableCol[] = [
 ];
 
 export const Tickers = ({ tickers }: TickersProps) => {
-  console.log("RENDER TICKERS");
-  const header = tableCols.map((col, index) => (
+  const header = tickerTableCols.map((col, index) => (
     <th key={index}>{col.title}</th>
   ));
   const body = tickers.map(ticker => {
-    const cells = tableCols.map((col, index) => (
+    const cells = tickerTableCols.map((col, index) => (
       <td key={index}>{ticker[col.prop]}</td>
     ));
     return <tr key={ticker.symbol}>{cells}</tr>;

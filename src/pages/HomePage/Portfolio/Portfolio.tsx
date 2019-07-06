@@ -6,7 +6,6 @@ export type PortfolioProps = {
 };
 
 export const Portfolio = ({ portfolio }: PortfolioProps) => {
-  console.log("RENDER PORTFOLIO");
   const header = portfolio.map(item => (
     <th key={item.symbol}>{item.symbol}</th>
   ));
